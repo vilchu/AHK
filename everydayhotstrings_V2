@@ -6,7 +6,7 @@ Persistent
 #SingleInstance force
 #Warn  ; Enable warnings to assist with detecting common errors.
 
-#HotIf WinActive("ahk_exe DiscordPTB.exe") || WinActive("ahk_exe Discord.exe") || WinActive("ahk_exe Opera.exe") || WinActive("ahk_exe Medal.exe") || WinActive("WhatsApp Beta")
+#HotIf WinActive("ahk_exe DiscordPTB.exe") || WinActive("ahk_exe Discord.exe") || WinActive("ahk_exe Opera.exe") || WinActive("ahk_exe Medal.exe") || WinActive("WhatsApp Beta") || WinActive("ChatGPT")
 
 ; discord markdown hotstrings 
 :?*B0:(::){left 1}
