@@ -63,13 +63,14 @@ Persistent
 :*?:;da::↓
 :*?:;deg::°
 :*?:;dis::ಠ_ಠ
+:*?:;lenny::( ͡° ͜ʖ ͡°)
+:*?:;shrug::¯\(ツ)/¯
 :*?:;es::☆
 :*?:;eur::€
 :*?:;gbp::£
 :*?:;fs::★
 :*?:;half::½
 :*?:;la::←
-:*?:;lenny::( ͡° ͜ʖ ͡°)
 :*?:;md::—
 :*?:;mid::·
 :*?:;nd::–
@@ -77,7 +78,6 @@ Persistent
 :*?:;pm::±
 :*?:;ra::→
 :*?:;reg::®
-:*?:;shrug::¯\(ツ)/¯
 :*?:;sup0::⁰
 :*?:;sup1::¹
 :*?:;sup2::²
@@ -5037,4 +5037,4 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::tohught::thought
 ::usb::USB
 ::whne::when
-::writtten::writtenwritten
+::writtten::written
