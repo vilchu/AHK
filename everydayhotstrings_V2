@@ -36,6 +36,7 @@ Persistent
 
 #SingleInstance
 
+;symbol shortcuts
 
 ;; Hotstring syntax: :<options>:<trigger_string>::<replacement>
 
