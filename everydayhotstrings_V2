@@ -1,7 +1,7 @@
 ﻿SendMode('Input')  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir(A_ScriptDir)  ; Ensures a consistent starting directory.
 Persistent
-#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0+
 
 #SingleInstance force
 #Warn  ; Enable warnings to assist with detecting common errors.
@@ -19,6 +19,11 @@ Persistent
 
 #HotIf WinActive
 
+::@@::  ; personnal mail address
+{
+    Send "xxxxxxxxxxxx5@gmail.com"
+}
+
 ;---------------------------------------- other sctipts
 ;Run a Quick Google Search Ctrl + Shift + C
 ^+c::
@@ -31,38 +36,26 @@ Persistent
 
 #SingleInstance
 
-;; Hotstrings documentation:
-;; https://lexikos.github.io/v2/docs/Hotstrings.htm
 
-;; Hotstring syntax:
-;;   :<options>:<trigger_string>::<replacement>
+;; Hotstring syntax: :<options>:<trigger_string>::<replacement>
 
 ;; Hotstring options used in this file:
 ;;   *  = An ending character (e.g. `Space`) is *not* required to trigger the hotstring.
 ;;   ?  = The hotstring will be triggered even when it's inside another word.
 ;;   b0 = Automatic backspacing is *not* done to erase the trigger string.
 
-;; These two need to be defined
-;; before the `h;` → `ö` hotstring
-;; or it will take precedence
+;; These two need to be defined before the `h;` → `ö` hotstring or it will take precedence
 :*?b0:dash;::
 {
-    ;; Do nothing so that typing the HTML entities
-    ;; `&ndash;` and `&mdash;`
-    ;; won't produce
-    ;; `&ndasö` and `&mdasö`
+;; Do nothing so that typing the HTML entities `&ndash;` and `&mdash;` won't produce `&ndasö` and `&mdasö`
 }
 :*?b0:length;::
 {
-    ;; Again, do nothing so that typing e.g.
-    ;; `foo.length;`
-    ;; won't produce
-    ;; `foo.lengtö`
+;; Again, do nothing so that typing e.g. `foo.length;` won't produce `foo.lengtö`
 }
 
-;; No need to define separate hotstrings for uppercase letters
-;; because hotstrings are "case-conforming" by default.
-;; Applies to the `;ao` → `å` hotstring as well.
+;; No need to define separate hotstrings for uppercase letters because hotstrings are "case-conforming" by default. Applies to the `;ao` → `å` hotstring as well.
+
 :*?:;...::…
 :*?:;ae::≈
 :*?:;b::•
@@ -99,12 +92,6 @@ Persistent
 :*?:;ua::↑
 :*?:;x::×
 :*?:;hrt::♥
-
-
-::@@::  ; personnal mail address
-{
-    Send "xxxxxxxxxxxx5@gmail.com"
-}
 
 ;---------------------------------------- other sctipts end
 
