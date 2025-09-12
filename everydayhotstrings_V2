@@ -6,7 +6,7 @@ Persistent
 #SingleInstance force
 #Warn  ; Enable warnings to assist with detecting common errors.
 
-#HotIf WinActive("ahk_exe DiscordPTB.exe") || WinActive("ahk_exe Discord.exe") || WinActive("ahk_exe Opera.exe") || WinActive("ahk_exe Medal.exe") || WinActive("WhatsApp Beta") || WinActive("ChatGPT")
+#HotIf WinActive("ahk_exe DiscordPTB.exe") || WinActive("ahk_exe Discord.exe") || WinActive("ahk_exe DiscordCanary.exe") || WinActive("ahk_exe Opera.exe") || WinActive("ahk_exe Medal.exe") || WinActive("WhatsApp Beta") || WinActive("ChatGPT")
 
 ; discord markdown hotstrings 
 :?*B0:(::){left 1}
@@ -5038,4 +5038,4 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::tohught::thought
 ::usb::USB
 ::whne::when
-::writtten::written
+::written::written
