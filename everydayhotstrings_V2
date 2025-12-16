@@ -1,14 +1,14 @@
 ﻿SendMode('Input')  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir(A_ScriptDir)  ; Ensures a consistent starting directory.
 Persistent
-#Requires AutoHotkey v2.0+
+#Requires AutoHotkey v2.0
 
 #SingleInstance force
 #Warn  ; Enable warnings to assist with detecting common errors.
 
 #HotIf WinActive("ahk_exe DiscordPTB.exe") || WinActive("ahk_exe Discord.exe") || WinActive("ahk_exe DiscordCanary.exe") || WinActive("ahk_exe Opera.exe") || WinActive("ahk_exe Medal.exe") || WinActive("WhatsApp Beta") || WinActive("ChatGPT")
 
-; discord markdown hotstrings 
+; discord markdown hotstrings
 :?*B0:(::){left 1}
 :?*B0:[::]{left 1}
 :?*bB0:{::{}}{left 1}
