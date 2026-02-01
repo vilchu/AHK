@@ -28,7 +28,25 @@ Persistent
 ; Quick Google Search (Ctrl + Shift + C)
 ; Opens Google even if nothing is selected
 
+
 #SingleInstance Force
+
+UriEncode(str) {
+    return StrReplace(EncodeURIComponent(str), "%20", "+")
+}
+
+EncodeURIComponent(str) {
+    static chars := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_.~"
+    out := ""
+    Loop Parse str {
+        ch := A_LoopField
+        if InStr(chars, ch)
+            out .= ch
+        else
+            out .= "%" Format("{:02X}", Ord(ch))
+    }
+    return out
+}
 
 ; Google — Ctrl + Shift + C
 ^+c:: {
@@ -61,22 +79,6 @@ Persistent
 }
 
 
-UriEncode(str) {
-    return StrReplace(EncodeURIComponent(str), "%20", "+")
-}
-
-EncodeURIComponent(str) {
-    static chars := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_.~"
-    out := ""
-    Loop Parse str {
-        ch := A_LoopField
-        if InStr(chars, ch)
-            out .= ch
-        else
-            out .= "%" Format("{:02X}", Ord(ch))
-    }
-    return out
-}
 
 
 
