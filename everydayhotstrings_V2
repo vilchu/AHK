@@ -50,7 +50,6 @@ EncodeURIComponent(str) {
 
 ; Google — Ctrl + Shift + C
 ; Opens Google even if nothing is selected
-; Restores clipboard after
 
 ^+c:: {
     ClipSaved := ClipboardAll()   ; Save full clipboard (text/images/etc.)
@@ -64,12 +63,9 @@ EncodeURIComponent(str) {
     A_Clipboard := ClipSaved      ; Restore clipboard
 }
 
-
-;----------------------------------------
 ; YouTube: Ctrl + Shift + Y
 ; - If text is selected: search it
 ; - If not: open YouTube home
-; - Restores clipboard after
 
 ^+y:: {
     ClipSaved := ClipboardAll()   ; Save full clipboard
