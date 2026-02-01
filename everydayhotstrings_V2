@@ -25,16 +25,60 @@ Persistent
 }
 
 ;---------------------------------------- other sctipts
-;Run a Quick Google Search Ctrl + Shift + C
-^+c::
-{
-    Send("^c")
-    Sleep(50)
-    Run("https://www.google.com/search?q=" A_Clipboard)
-    Return
+; Quick Google Search (Ctrl + Shift + C)
+; Opens Google even if nothing is selected
+
+#SingleInstance Force
+
+; Google — Ctrl + Shift + C
+^+c:: {
+    A_Clipboard := ""
+    Send "^c"
+    ClipWait 0.5
+    query := A_Clipboard ? UriEncode(A_Clipboard) : ""
+    Run "https://www.google.com/search?q=" query
 }
 
-#SingleInstance
+;----------------------------------------
+; YouTube: Ctrl + Shift + Y
+; - If text is selected: search it
+; - If not: open YouTube home
+; - Restores clipboard after
+
+^+y:: {
+    ClipSaved := ClipboardAll()   ; Save full clipboard (text/images/etc.)
+    A_Clipboard := ""             ; Clear so we can detect "no selection"
+    Send "^c"
+
+    if ClipWait(0.4) && A_Clipboard {
+        query := UriEncode(A_Clipboard)
+        Run "https://www.youtube.com/results?search_query=" query
+    } else {
+        Run "https://www.youtube.com/"
+    }
+
+    A_Clipboard := ClipSaved      ; Restore clipboard
+}
+
+
+UriEncode(str) {
+    return StrReplace(EncodeURIComponent(str), "%20", "+")
+}
+
+EncodeURIComponent(str) {
+    static chars := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_.~"
+    out := ""
+    Loop Parse str {
+        ch := A_LoopField
+        if InStr(chars, ch)
+            out .= ch
+        else
+            out .= "%" Format("{:02X}", Ord(ch))
+    }
+    return out
+}
+
+
 
 ;symbol shortcuts
 
