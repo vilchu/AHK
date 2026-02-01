@@ -49,13 +49,21 @@ EncodeURIComponent(str) {
 }
 
 ; Google — Ctrl + Shift + C
+; Opens Google even if nothing is selected
+; Restores clipboard after
+
 ^+c:: {
-    A_Clipboard := ""
+    ClipSaved := ClipboardAll()   ; Save full clipboard (text/images/etc.)
+    A_Clipboard := ""             ; Clear so we can detect "no selection"
     Send "^c"
     ClipWait 0.5
+
     query := A_Clipboard ? UriEncode(A_Clipboard) : ""
     Run "https://www.google.com/search?q=" query
+
+    A_Clipboard := ClipSaved      ; Restore clipboard
 }
+
 
 ;----------------------------------------
 ; YouTube: Ctrl + Shift + Y
@@ -64,11 +72,11 @@ EncodeURIComponent(str) {
 ; - Restores clipboard after
 
 ^+y:: {
-    ClipSaved := ClipboardAll()   ; Save full clipboard (text/images/etc.)
-    A_Clipboard := ""             ; Clear so we can detect "no selection"
+    ClipSaved := ClipboardAll()   ; Save full clipboard
+    A_Clipboard := ""             ; Clear to detect selection
     Send "^c"
 
-    if ClipWait(0.4) && A_Clipboard {
+    if ClipWait(0.5) && A_Clipboard {
         query := UriEncode(A_Clipboard)
         Run "https://www.youtube.com/results?search_query=" query
     } else {
@@ -77,9 +85,6 @@ EncodeURIComponent(str) {
 
     A_Clipboard := ClipSaved      ; Restore clipboard
 }
-
-
-
 
 
 ;symbol shortcuts
