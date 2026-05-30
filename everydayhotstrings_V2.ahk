@@ -47,7 +47,6 @@ EncodeURIComponent(str) {
     }
     return out
 }
-
 ; Google — Ctrl + Shift + C
 ; Opens Google even if nothing is selected
 
@@ -143,6 +142,11 @@ EncodeURIComponent(str) {
 :*?:;sup8::⁸
 :*?:;sup9::⁹
 :*?:;x::×
+
+:*?:;st::
+{
+    SendText "-#"
+}
 
 ;---------------------------------------- other sctipts end
 
