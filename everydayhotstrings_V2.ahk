@@ -2,7 +2,8 @@
 #SingleInstance Force
 #Warn
 
-^!o:: Run(A_ScriptDir)
+
+A_IconTip := "Everyday Hotstrings — Ctrl+Alt+S: on/off"
 
 ; Emergency controls
 #SuspendExempt
@@ -16,7 +17,8 @@
     )
 }
 
-^!r::Reload
+^!r:: Reload
+^!o:: Run(A_ScriptDir)
 
 #SuspendExempt False
 
@@ -27,6 +29,8 @@
 :?*B0:[::]{left 1}
 :?*bB0:{::{}}{left 1}
 :?*B0:"::"{left 1}
+
+#HotIf WinActive("ahk_exe DiscordPTB.exe") || WinActive("ahk_exe Discord.exe") || WinActive("ahk_exe DiscordCanary.exe")
 
 ; c``` → ```css block
 :?*B0:c````::
