@@ -912,7 +912,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::enthralls::enthrals
 ::instill::instil
 ::instills::instils
-::smolder::smoulder
+; ::smolder::smoulder <-- LoL champion name, so commented out to avoid accidental replacement in text.
 ::smolders::smoulders
 ::smoldered::smouldered
 ::smoldering::smouldering
