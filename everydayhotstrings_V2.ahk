@@ -42,7 +42,7 @@ Persistent
 #HotIf WinActive
 
 ; Optional local-only hotstrings. This file is excluded from Git. 
-;ez quick link to gmail by typing @@
+; ez quick link to gmail by typing @@
 #Include *i private_hotstrings.ahk
 
 ;---------------------------------------- other sctipts
@@ -170,6 +170,7 @@ EncodeURIComponent(str) {
 }
 
 ;---------------------------------------- other sctipts end
+
 
 ;------------------------------------------------------------------------------
 ; Fix for -ign instead of -ing.
