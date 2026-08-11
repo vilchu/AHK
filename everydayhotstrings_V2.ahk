@@ -41,7 +41,8 @@ Persistent
 
 #HotIf WinActive
 
-; Optional local-only hotstrings. This file is excluded from Git.
+; Optional local-only hotstrings. This file is excluded from Git. 
+;ez quick link to gmail by typing @@
 #Include *i private_hotstrings.ahk
 
 ;---------------------------------------- other sctipts
