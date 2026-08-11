@@ -14,6 +14,28 @@ Persistent
 :?*bB0:{::{}}{left 1}
 :?*B0:"::"{left 1}
 
+; c``` → ```css block
+:?*B0:c````::
+{
+    bt := Chr(96)
+    Send("{Backspace 3}") ; removes c + two `
+    SendText(bt bt bt "css")
+    Send("{Enter 2}")
+    SendText(bt bt bt)
+    Send("{Up}")
+}
+
+; ``` → normal block
+:?*B0:````::
+{
+    bt := Chr(96)
+    Send("{Backspace 2}") ; removes two `
+    SendText(bt bt bt)
+    Send("{Enter 2}")
+    SendText(bt bt bt)
+    Send("{Up}")
+}
+
 #HotIf WinActive("ahk_exe Overwatch.exe")
 !F4:: Return
 
@@ -21,7 +43,7 @@ Persistent
 
 ::@@::  ; personnal mail address
 {
-    Send "xxxxxxxxxxxx5@gmail.com"
+    Send "***************@gmail.com"
 }
 
 ;---------------------------------------- other sctipts
@@ -466,6 +488,438 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 
 
 ;------------------------------------------------------------------------------
+; American English to British English
+; Uses the common -ise British house style. Ambiguous/context-sensitive words
+; such as check/cheque, curb/kerb, license/licence, meter/metre,
+; practice/practise, program/programme and tire/tyre are intentionally omitted.
+;------------------------------------------------------------------------------
+
+; -or to -our
+::armor::armour
+::armors::armours
+::armored::armoured
+::armoring::armouring
+::armory::armoury
+::behavior::behaviour
+::behaviors::behaviours
+::behavioral::behavioural
+::color::colour
+::colors::colours
+::colored::coloured
+::coloring::colouring
+::colorful::colourful
+::colorless::colourless
+::discolor::discolour
+::discolored::discoloured
+::discoloring::discolouring
+::endeavor::endeavour
+::endeavors::endeavours
+::endeavored::endeavoured
+::endeavoring::endeavouring
+::favor::favour
+::favors::favours
+::favored::favoured
+::favoring::favouring
+::favorable::favourable
+::favorably::favourably
+::favorite::favourite
+::favorites::favourites
+::favoritism::favouritism
+::flavor::flavour
+::flavors::flavours
+::flavored::flavoured
+::flavoring::flavouring
+::flavorful::flavourful
+::harbor::harbour
+::harbors::harbours
+::harbored::harboured
+::harboring::harbouring
+::honor::honour
+::honors::honours
+::honored::honoured
+::honoring::honouring
+::honorable::honourable
+::honorably::honourably
+::humor::humour
+::humored::humoured
+::humoring::humouring
+::humorless::humourless
+::labor::labour
+::labors::labours
+::labored::laboured
+::laboring::labouring
+::laborer::labourer
+::laborers::labourers
+::neighbor::neighbour
+::neighbors::neighbours
+::neighboring::neighbouring
+::neighborhood::neighbourhood
+::neighborhoods::neighbourhoods
+::neighborly::neighbourly
+::odor::odour
+::odors::odours
+::odorless::odourless
+::rumor::rumour
+::rumors::rumours
+::rumored::rumoured
+::rumoring::rumouring
+::savior::saviour
+::saviors::saviours
+::splendor::splendour
+::vapor::vapour
+::vapors::vapours
+::vigor::vigour
+
+; -er to -re and related forms
+::caliber::calibre
+::calibers::calibres
+::center::centre
+::centers::centres
+::centered::centred
+::centering::centring
+::fiber::fibre
+::fibers::fibres
+::fiberglass::fibreglass
+::liter::litre
+::liters::litres
+::milliliter::millilitre
+::milliliters::millilitres
+::maneuver::manoeuvre
+::maneuvers::manoeuvres
+::maneuvered::manoeuvred
+::maneuvering::manoeuvring
+::maneuverable::manoeuvrable
+::maneuverability::manoeuvrability
+::saber::sabre
+::sabers::sabres
+::scepter::sceptre
+::scepters::sceptres
+::somber::sombre
+::specter::spectre
+::specters::spectres
+::theater::theatre
+::theaters::theatres
+
+; -ense to -ence
+::defense::defence
+::defenses::defences
+::offense::offence
+::offenses::offences
+::pretense::pretence
+::pretenses::pretences
+
+; Doubled l in common British forms
+::canceled::cancelled
+::canceling::cancelling
+::counseled::counselled
+::counseling::counselling
+::dialed::dialled
+::dialing::dialling
+::fueled::fuelled
+::fueling::fuelling
+::labeled::labelled
+::labeling::labelling
+::modeled::modelled
+::modeling::modelling
+::modeler::modeller
+::signaled::signalled
+::signaling::signalling
+::traveled::travelled
+::traveling::travelling
+::traveler::traveller
+::travelers::travellers
+::worshiped::worshipped
+::worshiping::worshipping
+
+; -ize/-yze to the selected -ise/-yse house style
+:*:acclimatiz::acclimatis
+:*:analyz::analys
+:*:anthropomorphiz::anthropomorphis
+:*:apologiz::apologis
+:*:authoriz::authoris
+:*:capitaliz::capitalis
+:*:categoriz::categoris
+:*:catalyz::catalys
+:*:characteriz::characteris
+:*:civiliz::civilis
+:*:coloniz::colonis
+:*:computeriz::computeris
+:*:criticiz::criticis
+:*:customiz::customis
+:*:destabiliz::destabilis
+:*:digitiz::digitis
+:*:emphasiz::emphasis
+:*:finaliz::finalis
+:*:formaliz::formalis
+:*:galvaniz::galvanis
+:*:generaliz::generalis
+:*:homogeniz::homogenis
+:*:initializ::initialis
+:*:institutionaliz::institutionalis
+:*:legaliz::legalis
+:*:maximiz::maximis
+:*:memoriz::memoris
+:*:minimiz::minimis
+:*:moderniz::modernis
+:*:nasaliz::nasalis
+:*:normaliz::normalis
+:*:optimiz::optimis
+:*:organiz::organis
+:*:paralyz::paralys
+:*:prioritiz::prioritis
+:*:proselytiz::proselytis
+:*:randomiz::randomis
+:*:realiz::realis
+:*:recogniz::recognis
+:*:specializ::specialis
+:*:stabiliz::stabilis
+:*:standardiz::standardis
+:*:steriliz::sterilis
+:*:summariz::summaris
+:*:symboliz::symbolis
+:*:synchroniz::synchronis
+:*:utiliz::utilis
+:*:visualiz::visualis
+
+; Other common spelling differences
+::acknowledgment::acknowledgement
+::acknowledgments::acknowledgements
+::aerogram::aerogramme
+::aerograms::aerogrammes
+::airplane::aeroplane
+::airplanes::aeroplanes
+::aluminum::aluminium
+::analog::analogue
+::analogs::analogues
+::artifact::artefact
+::artifacts::artefacts
+::catalog::catalogue
+::catalogs::catalogues
+::cataloged::catalogued
+::cataloging::cataloguing
+::checkered::chequered
+::cozy::cosy
+::cozier::cosier
+::coziest::cosiest
+::estrogen::oestrogen
+::fulfill::fulfil
+::fulfills::fulfils
+::fulfillment::fulfilment
+::installment::instalment
+::installments::instalments
+::jeweler::jeweller
+::jewelers::jewellers
+::jewelry::jewellery
+::leukemia::leukaemia
+::licorice::liquorice
+::mold::mould
+::molds::moulds
+::molded::moulded
+::molding::moulding
+::moldy::mouldy
+::mustache::moustache
+::mustaches::moustaches
+::omelet::omelette
+::omelets::omelettes
+::pajamas::pyjamas
+::pediatric::paediatric
+::pediatrics::paediatrics
+::plow::plough
+::plows::ploughs
+::plowed::ploughed
+::plowing::ploughing
+::skeptic::sceptic
+::skeptics::sceptics
+::skeptical::sceptical
+::skepticism::scepticism
+::snowplow::snowplough
+::snowplows::snowploughs
+
+; Additional -or to -our forms
+::candor::candour
+::clamor::clamour
+::clamors::clamours
+::clamored::clamoured
+::clamoring::clamouring
+::demeanor::demeanour
+::demeanors::demeanours
+::fervor::fervour
+::furor::furore
+::glamor::glamour
+::rancor::rancour
+::rigor::rigour
+::savor::savour
+::savors::savours
+::savored::savoured
+::savoring::savouring
+::tumor::tumour
+::tumors::tumours
+::valor::valour
+
+; Additional -er to -re forms
+::goiter::goitre
+::goiters::goitres
+::luster::lustre
+::meager::meagre
+::ocher::ochre
+::reconnoiter::reconnoitre
+::reconnoiters::reconnoitres
+::reconnoitered::reconnoitred
+::reconnoitering::reconnoitring
+::saltpeter::saltpetre
+::sepulcher::sepulchre
+::sepulchers::sepulchres
+
+; Additional -ogue forms
+::dialog::dialogue
+::dialogs::dialogues
+::epilog::epilogue
+::epilogs::epilogues
+::monolog::monologue
+::monologs::monologues
+::travelog::travelogue
+::travelogs::travelogues
+
+; Additional doubled-l and retained-e forms
+::aging::ageing
+::channeled::channelled
+::channeling::channelling
+::chiseled::chiselled
+::chiseling::chiselling
+::equaled::equalled
+::equaling::equalling
+::initialed::initialled
+::initialing::initialling
+::leveled::levelled
+::leveling::levelling
+::libeled::libelled
+::libeling::libelling
+::marvelous::marvellous
+::marvelously::marvellously
+::paneled::panelled
+::paneling::panelling
+::quarreled::quarrelled
+::quarreling::quarrelling
+::rivaled::rivalled
+::rivaling::rivalling
+::shoveled::shovelled
+::shoveling::shovelling
+::skillful::skilful
+::skillfully::skilfully
+::skillfulness::skilfulness
+::willful::wilful
+::willfully::wilfully
+::willfulness::wilfulness
+::woolen::woollen
+::woolens::woollens
+
+; Additional -ise/-yse families
+:*:accessoriz::accessoris
+:*:agoniz::agonis
+:*:amortiz::amortis
+:*:appetiz::appetis
+:*:baptiz::baptis
+:*:breathalyz::breathalys
+:*:brutaliz::brutalis
+:*:burglariz::burglaris
+:*:centraliz::centralis
+:*:commercializ::commercialis
+:*:conceptualiz::conceptualis
+:*:demoraliz::demoralis
+:*:economiz::economis
+:*:electrolyz::electrolys
+:*:equaliz::equalis
+:*:familiariz::familiaris
+:*:fertiliz::fertilis
+:*:globaliz::globalis
+:*:harmoniz::harmonis
+:*:hospitaliz::hospitalis
+:*:humaniz::humanis
+:*:hydrolyz::hydrolys
+:*:idealiz::idealis
+:*:immobiliz::immobilis
+:*:immuniz::immunis
+:*:industrializ::industrialis
+:*:internaliz::internalis
+:*:jeopardiz::jeopardis
+:*:localiz::localis
+:*:marginaliz::marginalis
+:*:materializ::materialis
+:*:mechaniz::mechanis
+:*:mobiliz::mobilis
+:*:neutraliz::neutralis
+:*:patroniz::patronis
+:*:personaliz::personalis
+:*:polariz::polaris
+:*:privatiz::privatis
+:*:publiciz::publicis
+:*:rationaliz::rationalis
+:*:sanitiz::sanitis
+:*:sensitiz::sensitis
+:*:socializ::socialis
+:*:theoriz::theoris
+:*:victimiz::victimis
+
+; Medical and scientific spelling differences
+::anemia::anaemia
+::anemic::anaemic
+::anesthesia::anaesthesia
+::anesthetic::anaesthetic
+::anesthetics::anaesthetics
+::anesthetize::anaesthetise
+::anesthetized::anaesthetised
+::anesthetizing::anaesthetising
+::archeology::archaeology
+::archeological::archaeological
+::archeologist::archaeologist
+::archeologists::archaeologists
+::cesarean::caesarean
+::cesareans::caesareans
+::diarrhea::diarrhoea
+::edema::oedema
+::edemas::oedemas
+::edematous::oedematous
+::esophagus::oesophagus
+::esophagi::oesophagi
+::esophageal::oesophageal
+::fecal::faecal
+::gynecology::gynaecology
+::gynecological::gynaecological
+::gynecologist::gynaecologist
+::gynecologists::gynaecologists
+::hemoglobin::haemoglobin
+::hemorrhage::haemorrhage
+::hemorrhages::haemorrhages
+::hemorrhaged::haemorrhaged
+::hemorrhaging::haemorrhaging
+::leukocyte::leucocyte
+::leukocytes::leucocytes
+::orthopedic::orthopaedic
+::orthopedics::orthopaedics
+::orthopedist::orthopaedist
+::orthopedists::orthopaedists
+::paleontology::palaeontology
+::paleontological::palaeontological
+::paleontologist::palaeontologist
+::paleontologists::palaeontologists
+
+; Other additional spelling differences
+::ax::axe
+::enroll::enrol
+::enrolls::enrols
+::enrollment::enrolment
+::enrollments::enrolments
+::enthrall::enthral
+::enthralls::enthrals
+::instill::instil
+::instills::instils
+::smolder::smoulder
+::smolders::smoulders
+::smoldered::smouldered
+::smoldering::smouldering
+
+
+;------------------------------------------------------------------------------
 ; Common Misspellings - the main list
 ;------------------------------------------------------------------------------
 ::htp:::http:
@@ -496,7 +950,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::aboutthe::about the
 ::abscence::absence
 ::absense::absence
-::abcense::absense
+::abcense::absence
 ::absolutley::absolutely
 ::absolutly::absolutely
 ::asorbed::absorbed
@@ -524,7 +978,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::accidentaly::accidentally
 ::accidently::accidentally
 ::accidnetally::accidentally
-::acclimitization::acclimatization
+::acclimitization::acclimatisation
 ::accomdate::accommodate
 ::accomodate::accommodate
 ::acommodate::accommodate
@@ -559,6 +1013,8 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::achivement::achievement
 ::achivements::achievements
 ::acide::acid
+::acknowlege::acknowledge
+::acknowleged::acknowledged
 ::acknolwedge::acknowledge
 ::acknowldeged::acknowledged
 ::acknowledgeing::acknowledging
@@ -734,6 +1190,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::almsot::almost
 ::alomst::almost
 ::alonw::alone
+::alot::a lot
 ::allready::already
 ::alraedy::already
 ::alreayd::already
@@ -827,7 +1284,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::naswered::answered
 ::antartic::antarctic
 ::anthromorphisation::anthropomorphisation
-::anthromorphization::anthropomorphization
+::anthromorphization::anthropomorphisation
 ::anti-semetic::anti-Semitic
 ::anticlimatic::anticlimactic
 ::anyother::any other
@@ -856,6 +1313,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::apolegetics::apologetics
 ::appologies::apologies
 ::appology::apology
+::aparantly::apparently
 ::aparent::apparent
 ::apparant::apparent
 ::apparrent::apparent
@@ -971,6 +1429,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::atheistical::atheistic
 ::athenean::Athenian
 ::atheneans::Athenians
+::atleast::at least
 ::atmospher::atmosphere
 ::attrocities::atrocities
 ::attatch::attach
@@ -1094,6 +1553,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::befoer::before
 ::ebfore::before
 ::begginer::beginner
+::begginner::beginner
 ::begginers::beginners
 ::beggining::beginning
 ::begining::beginning
@@ -1343,8 +1803,8 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::charaterised::characterised
 ::charactersistic::characteristic
 ::charistics::characteristics
-::caracterized::characterized
-::charaterized::characterized
+::caracterized::characterised
+::charaterized::characterised
 ::cahracters::characters
 ::charachters::characters
 ::charactors::characters
@@ -1419,7 +1879,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::colelctive::collective
 ::collonies::colonies
 ::colonisators::colonisers
-::colonizators::colonizers
+::colonizators::colonisers
 ::collonade::colonnade
 ::collony::colony
 ::collosal::colossal
@@ -1539,7 +1999,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::coputer::computer
 ::ocmputer::computer
 ::computarised::computerised
-::computarized::computerized
+::computarized::computerised
 ::comptuers::computers
 ::ocmputers::computers
 ::concieted::conceited
@@ -1880,7 +2340,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::dispicable::despicable
 ::dispite::despite
 ::destablised::destabilised
-::destablized::destabilized
+::destablized::destabilised
 ::desinations::destinations
 ::desitned::destined
 ::destory::destroy
@@ -2414,8 +2874,8 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::forfiet::forfeit
 ::formallise::formalise
 ::formallised::formalised
-::formallize::formalize
-::formallized::formalized
+::formallize::formalise
+::formallized::formalised
 ::formaly::formally
 ::fomed::formed
 ::fromed::formed
@@ -2444,7 +2904,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::fromt he::from the
 ::fromthe::from the
 ::froniter::frontier
-::fufill::fulfill
+::fufill::fulfil
 ::fufilled::fulfilled
 ::fulfiled::fulfilled
 ::funtion::function
@@ -2460,7 +2920,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::galations::Galatians
 ::gallaxies::galaxies
 ::galvinised::galvanised
-::galvinized::galvanized
+::galvinized::galvanised
 ::gameboy::Game Boy
 ::ganes::games
 ::ghandi::Gandhi
@@ -2573,6 +3033,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::harrasses::harassed
 ::harases::harasses
 ::harrases::harasses
+::harrass::harass
 ::harrasing::harassing
 ::harrassing::harassing
 ::harassement::harassment
@@ -2652,8 +3113,8 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::hosited::hoisted
 ::holliday::holiday
 ::homestate::home state
-::homogeneize::homogenize
-::homogeneized::homogenized
+::homogeneize::homogenise
+::homogeneized::homogenised
 ::honourarium::honorarium
 ::honory::honorary
 ::honourific::honorific
@@ -2665,8 +3126,9 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::huminoid::humanoid
 ::humoural::humoral
 ::humer::humour
-::humerous::humourous
-::humurous::humourous
+::humerous::humorous
+::humourous::humorous
+::humurous::humorous
 ::husban::husband
 ::hydogen::hydrogen
 ::hydropile::hydrophile
@@ -2845,7 +3307,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::instade::instead
 ::insted::instead
 ::institue::institute
-::instutionalized::institutionalized
+::instutionalized::institutionalised
 ::instuction::instruction
 ::instuments::instruments
 ::insufficent::insufficient
@@ -3071,8 +3533,8 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::mamalian::mammalian
 ::managable::manageable
 ::managment::management
-::manuver::maneuver
-::manoeuverability::maneuverability
+::manuver::manoeuvre
+::manoeuverability::manoeuvrability
 ::manifestion::manifestation
 ::manisfestations::manifestations
 ::manufature::manufacture
@@ -3250,7 +3712,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::naieve::naive
 ::napoleonian::Napoleonic
 ::ansalisation::nasalisation
-::ansalization::nasalization
+::ansalization::nasalisation
 ::naturual::natural
 ::naturaly::naturally
 ::naturely::naturally
@@ -3426,14 +3888,14 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::opression::oppression
 ::opressive::oppressive
 ::optomism::optimism
-::optmizations::optimizations
+::optmizations::optimisations
 ::orded::ordered
 ::oridinarily::ordinarily
 ::orginize::organise
 ::organim::organism
-::organiztion::organization
-::orginization::organization
-::orginized::organized
+::organiztion::organisation
+::orginization::organisation
+::orginized::organised
 ::orgin::origin
 ::orginal::original
 ::origional::original
@@ -3820,7 +4282,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::propostion::proposition
 ::propietary::proprietary
 ::proprietory::proprietary
-::proseletyzing::proselytizing
+::proseletyzing::proselytising
 ::protaganist::protagonist
 ::protoganist::protagonist
 ::protaganists::protagonists
@@ -3869,6 +4331,8 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::questoin::question
 ::quetion::question
 ::questonable::questionable
+::questionaire::questionnaire
+::questionaires::questionnaires
 ::questionnair::questionnaire
 ::quesions::questions
 ::questioms::questions
@@ -3912,9 +4376,9 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::reciepents::recipients
 ::recipiants::recipients
 ::recogise::recognise
-::recogize::recognize
-::reconize::recognize
-::reconized::recognized
+::recogize::recognise
+::reconize::recognise
+::reconized::recognised
 ::reccommend::recommend
 ::recomend::recommend
 ::reommend::recommend
@@ -4106,7 +4570,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::rougly::roughly
 ::rudimentatry::rudimentary
 ::rulle::rule
-::rumers::rumors
+::rumers::rumours
 ::runing::running
 ::runnung::running
 ::russina::Russian
@@ -4517,7 +4981,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::synphony::symphony
 ::sypmtoms::symptoms
 ::synagouge::synagogue
-::syncronization::synchronization
+::syncronization::synchronisation
 ::synonomous::synonymous
 ::synonymns::synonyms
 ::syphyllis::syphilis
@@ -4624,7 +5088,6 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::theese::these
 ::htey::they
 ::tehy::they
-::tyhe::they
 ::theif::thief
 ::theives::thieves
 ::hting::thing
@@ -4731,6 +5194,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::trustworthyness::trustworthiness
 ::tuscon::Tucson
 ::termoil::turmoil
+::twelth::twelfth
 ::twpo::two
 ::typcial::typical
 ::typicaly::typically
@@ -4851,6 +5315,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::ususally::usually
 ::vaccum::vacuum
 ::vaccume::vacuum
+::vaccuum::vacuum
 ::vaguaries::vagaries
 ::vailidty::validity
 ::valetta::valletta
