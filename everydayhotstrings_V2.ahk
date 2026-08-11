@@ -41,10 +41,8 @@ Persistent
 
 #HotIf WinActive
 
-::@@::  ; personnal mail address
-{
-    Send "***************@gmail.com"
-}
+; Optional local-only hotstrings. This file is excluded from Git.
+#Include *i private_hotstrings.ahk
 
 ;---------------------------------------- other sctipts
 ; Quick Google Search (Ctrl + Shift + C)
