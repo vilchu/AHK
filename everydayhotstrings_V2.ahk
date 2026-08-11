@@ -2,6 +2,8 @@
 #SingleInstance Force
 #Warn
 
+^!o:: Run(A_ScriptDir)
+
 ; Emergency controls
 #SuspendExempt
 
