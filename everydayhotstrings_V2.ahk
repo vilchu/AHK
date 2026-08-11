@@ -1,10 +1,22 @@
-﻿SendMode('Input')  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir(A_ScriptDir)  ; Ensures a consistent starting directory.
-Persistent
-#Requires AutoHotkey v2.0
+﻿#Requires AutoHotkey v2.0
+#SingleInstance Force
+#Warn
 
-#SingleInstance force
-#Warn  ; Enable warnings to assist with detecting common errors.
+; Emergency controls
+#SuspendExempt
+
+^!s::
+{
+    Suspend
+    TrayTip(
+        A_IsSuspended ? "Hotstrings suspended" : "Hotstrings active",
+        "Everyday Hotstrings"
+    )
+}
+
+^!r::Reload
+
+#SuspendExempt False
 
 #HotIf WinActive("ahk_exe DiscordPTB.exe") || WinActive("ahk_exe Discord.exe") || WinActive("ahk_exe DiscordCanary.exe") || WinActive("ahk_exe Opera.exe") || WinActive("ahk_exe Medal.exe") || WinActive("WhatsApp Beta") || WinActive("ChatGPT")
 
@@ -39,18 +51,17 @@ Persistent
 #HotIf WinActive("ahk_exe Overwatch.exe")
 !F4:: Return
 
-#HotIf WinActive
+#HotIf
 
 ; Optional local-only hotstrings. This file is excluded from Git. 
 ; ez quick link to gmail by typing @@
 #Include *i private_hotstrings.ahk
 
 ;---------------------------------------- other sctipts
+
 ; Quick Google Search (Ctrl + Shift + C)
 ; Opens Google even if nothing is selected
 
-
-#SingleInstance Force
 
 UriEncode(str) {
     return StrReplace(EncodeURIComponent(str), "%20", "+")
