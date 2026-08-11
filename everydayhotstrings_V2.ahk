@@ -217,11 +217,11 @@ EncodeURIComponent(str) {
 ::sovereign::
 ::unbenign::
 ::verisign::
-{ ; V1toV2: Added bracket
+{
 return  ; This makes the above hotstrings do nothing so that they override the ign->ing rule below.
 
 #HotString B  ; Turn back on automatic backspacing for all subsequent hotstrings.
-} ; V1toV2: Added Bracket before hotkey or Hotstring
+}
 :?:ign::ing
 
 
