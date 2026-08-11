@@ -2,7 +2,6 @@
 #SingleInstance Force
 #Warn
 
-
 A_IconTip := "Everyday Hotstrings — Ctrl+Alt+S: on/off"
 
 ; Emergency controls
@@ -4662,6 +4661,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::selectoin::selection
 ::seinor::senior
 ::sence::sense
+::sensetive::sensitive
 ::senstive::sensitive
 ::sentance::sentence
 ::separeate::separate
