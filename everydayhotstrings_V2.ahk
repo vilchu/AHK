@@ -365,6 +365,7 @@ return  ; This makes the above hotstrings do nothing so that they override the i
 ::ure::you're
 ::uve::you've
 ::whove::who've
+::whys::why's
 
 
 ;------------------------------------------------------------------------------  
